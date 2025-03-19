@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: ntjarvo1l-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ntjarvo1l-nodejs 
+  name: ntjarvo1l-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: ntjarvo1l-nodejs
+    weight: 100 
